@@ -27,7 +27,7 @@ const LandingPage = () => {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               onClick={() =>
-                (window.location.href = "http://localhost:8080/login")
+                (window.location.href = "https://racial-angela-jyotiprakashh-5b571460.koyeb.app/login")
               }
               className="block w-full rounded border font-bold border-spotifygreen bg-spotifygreen px-12 py-3 text-sm  text-black hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto animate-bounce"
               href="#"

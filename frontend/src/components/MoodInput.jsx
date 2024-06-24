@@ -16,7 +16,7 @@ function MoodInput() {
   useEffect(() => {
     async function fetchUserProfile() {
       try {
-        const response = await axios.get('http://localhost:8080/api/user-profile', { withCredentials: true });
+        const response = await axios.get('https://racial-angela-jyotiprakashh-5b571460.koyeb.app/api/user-profile', { withCredentials: true });
         setUser(response.data);
         // console.log('User profile:', response.data);
       } catch (error) {
@@ -32,7 +32,7 @@ function MoodInput() {
   const handleGeneratePlaylist = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/generate-playlist', { mood });
+      const response = await axios.post('https://racial-angela-jyotiprakashh-5b571460.koyeb.app/api/generate-playlist', { mood });
       console.log('Playlist response:', response.data.playlist);
       setPlaylist(response.data.playlist);
       setPlaylistURL(''); // Clear the playlist URL when generating a new playlist
@@ -44,7 +44,7 @@ function MoodInput() {
   const handleAddPlaylist = async () => {
     const playlistName = `${mood.charAt(0).toUpperCase() + mood.slice(1)} Playlist`;
     try {
-      const response = await axios.post('http://localhost:8080/api/addPlaylist', {playlist: playlist.map(track => track.name), name: playlistName});
+      const response = await axios.post('https://racial-angela-jyotiprakashh-5b571460.koyeb.app/api/addPlaylist', {playlist: playlist.map(track => track.name), name: playlistName});
       console.log('Playlist URL response:', response.data.playlist_url);
       setPlaylistURL(response.data.playlist_url);
     } catch (error) {

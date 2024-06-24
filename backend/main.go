@@ -15,21 +15,21 @@ import (
 
 	"golang.org/x/oauth2"
 
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 
 	"github.com/zmb3/spotify/v2"
 )
 
-func init() {
-	if err := godotenv.Load(); err != nil {
-		log.Fatalf("Error loading .env filee")
-	}
-}
+// func init() {
+// 	if err := godotenv.Load(); err != nil {
+// 		log.Fatalf("Error loading .env filee")
+// 	}
+// }
 
 // redirectURI is the OAuth redirect URI for the application.
 // You must register an application at Spotify's developer portal
 // and enter this value.
-const redirectURI = "http://localhost:8080/callback"
+const redirectURI = "https://racial-angela-jyotiprakashh-5b571460.koyeb.app/callback"
 
 var (
 	auth = spotifyauth.New(spotifyauth.WithRedirectURL(redirectURI), spotifyauth.WithScopes(
@@ -52,7 +52,7 @@ var (
 func CORSMiddleware(next http.Handler) http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		origin := r.Header.Get("Origin")
-        if origin == "http://localhost:5173" {
+        if origin == "https://spotify-playlist-maker-olive.vercel.app" {
             w.Header().Set("Access-Control-Allow-Origin", origin)
 			w.Header().Set("Access-Control-Allow-Credentials", "true")
         } else {
@@ -152,7 +152,7 @@ func completeAuth(w http.ResponseWriter, r *http.Request) {
 	clientStore = client
 	clientMutex.Unlock()
 	fmt.Println(w, "Login Completed!")
-	http.Redirect(w, r, "http://localhost:5173/app", http.StatusSeeOther)
+	http.Redirect(w, r, "https://spotify-playlist-maker-olive.vercel.app/app", http.StatusSeeOther)
 	ch <- client
 }
 

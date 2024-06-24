@@ -10,7 +10,7 @@ function Navbar() {
   useEffect(() => {
     async function fetchUserProfile() {
       try {
-        const response = await axios.get('http://localhost:8080/api/user-profile', { withCredentials: true });
+        const response = await axios.get('https://racial-angela-jyotiprakashh-5b571460.koyeb.app/api/user-profile', { withCredentials: true });
         setUser(response.data);
         // console.log('User profile:', response.data);
       } catch (error) {
@@ -23,7 +23,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/logout', {}, { withCredentials: true });
+      const response = await axios.post('https://racial-angela-jyotiprakashh-5b571460.koyeb.app/logout', {}, { withCredentials: true });
       if (response.status === 200) {
         navigate('/'); // Use the navigate function to redirect to the root page
         console.log('User logged out');
