@@ -15,7 +15,7 @@ import (
 
 	"golang.org/x/oauth2"
 
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 
 	"github.com/zmb3/spotify/v2"
 )
