@@ -20,11 +20,11 @@ import (
 	"github.com/zmb3/spotify/v2"
 )
 
-func init() {
-	if err := godotenv.Load(); err != nil {
-		log.Fatalf("Error loading .env filee")
-	}
-}
+// func init() {
+// 	if err := godotenv.Load(); err != nil {
+// 		log.Fatalf("Error loading .env filee")
+// 	}
+// }
 
 // redirectURI is the OAuth redirect URI for the application.
 // You must register an application at Spotify's developer portal
