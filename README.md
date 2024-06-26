@@ -26,7 +26,7 @@ This project is a web application that interacts with the Spotify API to generat
 **Backend**
 1. Clone the repository:
 ```bash
-git clone https://github.com/jyotiprakashh/Spotify-Playlist-Maker
+git clone https://github.com/jyotiprakashh/Spotify-Playlist-Maker.git
 cd spotify-mood-playlist
 ```
 
