@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 function MainApp() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar className="relative" /> */}
       <MoodInput />
     </div>
   );

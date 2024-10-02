@@ -1,43 +1,63 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LandingPage = () => {
-  //   const history = useHistory();
+  const navigate = useNavigate();
+
+  const handleGetStarted = async () => {
+    try {
+      const response = await axios.get("https://racial-angela-jyotiprakashh-5b571460.koyeb.app/api/getUserID", {
+        withCredentials: true,
+      });
+      if (response.data.user_id) {
+        navigate("/app");
+      }
+    } catch (error) {
+      window.location.href = "https://racial-angela-jyotiprakashh-5b571460.koyeb.app/login";
+    }
+  };
 
   return (
-    <section className="relative bg-spotifyblack text-white h-screen flex items-center overflow-hidden">
-      <img
-        src="bg.jpg"
-        alt="Background"
-        className="absolute  top-0 left-0 w-full h-full  object-cover opacity-10 z-0"
-      />
+    <div className="min-h-screen bg-gradient-to-br from-green-900 via-spotifyblack to-spotifyblack text-white overflow-hidden">
+      <div className="relative container mx-auto px-4 py-16">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-spotifygreen rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute top-0 right-0 w-72 h-72 bg-spotifygreen rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        
+        <nav className="relative flex justify-between items-center mb-16">
+          <div className="text-3xl font-extrabold text-white">SpotiMood</div>
+        </nav>
 
-      <div className="mx-auto z-10 max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="bg-gradient-to-r from-spotifygreen via-spotifygreen to-spotifygreen bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-            Welcome to SpotiMood!
+        <div className="relative flex flex-col items-center justify-center mt-20">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-spotifygreen to-emerald-400">
+            Discover Your Playlist Mood
           </h1>
-
-          <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed font-semibold">
-            Happy or sad or relaxed or romantic?
-            <span className="sm:block">
-              Let SpotiMood help you find the right playlist for your mood.
-            </span>
+          <p className="text-lg md:text-xl lg:text-2xl text-center mb-12 max-w-3xl px-4">
+            Let SpotiMood generate the perfect Spotify playlist based on your
+            emotions. AI-driven playlist curation for every moment.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              onClick={() =>
-                (window.location.href = "https://racial-angela-jyotiprakashh-5b571460.koyeb.app/login")
-              }
-              className="block w-full rounded border font-bold border-spotifygreen bg-spotifygreen px-12 py-3 text-sm  text-black hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto animate-bounce"
-              href="#"
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={handleGetStarted}
+              className="px-8 py-3 bg-gradient-to-r from-spotifygreen/80 to-spotifygreen text-white font-semibold rounded-full hover:from-spotifygreen hover:to-spotifygreen transform hover:scale-105 transition duration-300 ease-in-out shadow-lg"
             >
               Get Started
+            </button>
+            <a
+              href="#learn-more"
+              className="px-8 py-3 bg-white bg-opacity-20 text-white font-semibold rounded-full hover:bg-opacity-30 transform hover:scale-105 transition duration-300 ease-in-out shadow-lg"
+            >
+              Learn More
             </a>
           </div>
         </div>
+
+        <footer className="relative mt-24 text-center text-gray-400 bottom-0 ">
+          <p>&copy; 2024 SpotiMood. By Jyoti Prakash</p>
+        </footer>
       </div>
-    </section>
+    </div>
   );
 };
 
